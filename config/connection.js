@@ -5,4 +5,4 @@ const connectionString =
 
 connect(connectionString);
 
-module.exports - connection;
+module.exports = connection;

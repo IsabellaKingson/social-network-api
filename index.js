@@ -7,6 +7,8 @@ const cwd = process.cwd();
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const apiServer = cwd.includes("social-network-api");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
@@ -14,7 +16,7 @@ app.use(routes);
 db.once("open", () => {
   app.listen(PORT, () => {
     console.log(
-      `API server for social network running at https://localhost/${PORT}`
+      `API server for ${apiServer} running at https://localhost/${PORT}`
     );
   });
 });
