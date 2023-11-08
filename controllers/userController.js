@@ -75,7 +75,7 @@ module.exports = {
     try {
       const updatedUser = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $push: { friends: req.body } },
+        { $push: { friends: req.params.friendId } },
         { new: true }
       );
       if (!updatedUser) {
@@ -91,7 +91,7 @@ module.exports = {
     try {
       const updatedUser = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $pull: { friends: { friendId: req.body.friendId } } }
+        { $pull: { friends: { friendId: req.params.friendId } } }
       );
       if (!updatedUser) {
         return res.status(400).json({ message: "Oops, something went wrong" });

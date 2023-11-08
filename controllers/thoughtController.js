@@ -105,7 +105,7 @@ module.exports = {
     try {
       const updatedThought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: { reactionId: req.body.reactionId } } },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { new: true }
       );
       if (!updatedThought) {
